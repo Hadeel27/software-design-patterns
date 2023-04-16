@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Calculate Area</title>
+</head>
+
+<body>
+    <h1>Calculate Area</h1>
+    <form>
+        <label>Shape:</label>
+        <select name="shape">
+            <option value="rectangle">Rectangle</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="circle">Circle</option>
+        </select>
+        <br>
+        <label>Length:</label>
+        <input type="text" name="length">
+        <br>
+        <label>Width:</label>
+        <input type="text" name="width">
+        <br>
+        <label>Radius:</label>
+        <input type="text" name="radius">
+        <br>
+        <input type="submit" value="Calculate">
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const shape = form.querySelector('select[name="shape"]').value;
+            let area;
+            if (shape === 'rectangle') {
+                const length = form.querySelector('input[name="length"]').value;
+                const width = form.querySelector('input[name="width"]').value;
+                area = length * width;
+            } else if (shape === 'square') {
+                const length = form.querySelector('input[name="length"]').value;
+                area = length * length;
+            } else if (shape === 'triangle') {
+                const length = form.querySelector('input[name="length"]').value;
+                const width = form.querySelector('input[name="width"]').value;
+                area = (length * width) / 2;
+            } else if (shape === 'circle') {
+                const radius = form.querySelector('input[name="radius"]').value;
+                area = Math.PI * (radius * radius);
+            }
+            alert(`The area of the ${shape} is ${area}`);
+        });
+    </script>
+</body>
+
+</html>
